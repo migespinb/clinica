@@ -33,12 +33,12 @@ use app\models\Comuna;
         'addon'=>false,
         'clientOptions' => [
             'autoclose' => true,
-            'format' => 'yyyy-mm-dd',
+            'format' => 'dd-mm-yyyy',
             'todayHighlight'=>true
         ],
         'options'=>[
-            'disabled'=>$model->isNewRecord? false: 'disabled',
-            'placeholder'=>'2020-12-31'
+            // 'disabled'=>$model->isNewRecord? false: 'disabled',
+            'placeholder'=>'31-12-2020'
         ]
     ])?>
 

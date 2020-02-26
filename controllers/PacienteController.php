@@ -66,7 +66,10 @@ class PacienteController extends Controller
     {
         $model = new Paciente();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            // $model->fnacimiento_paciente;
+            $model->fnacimiento_paciente=date('Y-m-d', strtotime($model->fnacimiento_paciente));
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id_paciente]);
         }
 
@@ -85,8 +88,11 @@ class PacienteController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->fnacimiento_paciente=date('d-m-Y', strtotime($model->fnacimiento_paciente));
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->fnacimiento_paciente=date('Y-m-d', strtotime($model->fnacimiento_paciente));
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id_paciente]);
         }
 
